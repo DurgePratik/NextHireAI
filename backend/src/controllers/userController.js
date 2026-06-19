@@ -49,15 +49,17 @@ export const uploadResume = async (
             req.file.originalname
           );
 
+console.log("AI URL =", process.env.AI_SERVICE_URL);
+
           const aiResponse =
-            await axios.post(
-              "http://127.0.0.1:8000/parse-resume",
-              formData,
-              {
-                headers:
-                  formData.getHeaders(),
-              }
-            );
+  await axios.post(
+    `${process.env.AI_SERVICE_URL}/parse-resume`,
+    formData,
+    {
+      headers:
+        formData.getHeaders(),
+    }
+  );
 
           const skills =
             aiResponse.data.skills ||
