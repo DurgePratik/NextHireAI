@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API_URL =
-  "http://localhost:5000/api/users";
+  "https://nexthireai-cwdd.onrender.com/api/user";
 
 export const uploadResume =
   async (file) => {

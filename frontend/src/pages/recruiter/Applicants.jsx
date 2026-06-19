@@ -253,7 +253,7 @@ const Applicants = () => {
                       .candidate
                       ?.resumeFileId ? (
                       <a
-                        href={`http://localhost:5000/api/users/resume/${application.candidate.resumeFileId}`}
+                        href={`https://nexthireai-cwdd.onrender.com/api/applications/resume/${application.candidate.resumeFileId}`}
                         target="_blank"
                         rel="noreferrer"
                         className="bg-sky-600 text-white px-4 py-2 rounded-lg hover:bg-sky-700"

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API_URL =
-  "http://localhost:5000/api/applications";
+  "https://nexthireai-cwdd.onrender.com/api/applications";
 
 export const applyJob = async (jobId) => {
   const token =

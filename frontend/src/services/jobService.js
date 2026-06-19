@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/jobs";
+const API_URL = "https://nexthireai-cwdd.onrender.com";
 
 export const createJob = async (jobData) => {
   const token = localStorage.getItem("token");
@@ -35,7 +35,7 @@ export const getMyJobs = async () => {
 
 export const getAllJobs = async () => {
   const response = await axios.get(
-    "http://localhost:5000/api/jobs"
+    "https://nexthireai-cwdd.onrender.com/api/jobs"
   );
 
   return response.data;
