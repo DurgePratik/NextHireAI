@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API_URL =
-  "https://nexthireai-cwdd.onrender.com/api/user";
+  "https://nexthireai-cwdd.onrender.com/api/users";
 
 export const uploadResume =
   async (file) => {
@@ -23,8 +23,6 @@ export const uploadResume =
         {
           headers: {
             Authorization: `Bearer ${token}`,
-            "Content-Type":
-              "multipart/form-data",
           },
         }
       );
