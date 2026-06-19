@@ -49,21 +49,34 @@ export const uploadResume = async (
             req.file.originalname
           );
 
-console.log("AI URL =", process.env.AI_SERVICE_URL);
+          console.log(
+            "AI URL =",
+            `${process.env.AI_SERVICE_URL}/parse-resume`
+          );
 
           const aiResponse =
-  await axios.post(
-    `${process.env.AI_SERVICE_URL}/parse-resume`,
-    formData,
-    {
-      headers:
-        formData.getHeaders(),
-    }
-  );
+            await axios.post(
+              `${process.env.AI_SERVICE_URL}/parse-resume`,
+              formData,
+              {
+                headers:
+                  formData.getHeaders(),
+              }
+            );
+
+          console.log(
+            "AI RESPONSE:",
+            aiResponse.data
+          );
 
           const skills =
             aiResponse.data.skills ||
             [];
+
+          console.log(
+            "EXTRACTED SKILLS:",
+            skills
+          );
 
           await User.findByIdAndUpdate(
             req.user._id,
@@ -86,8 +99,26 @@ console.log("AI URL =", process.env.AI_SERVICE_URL);
           });
         } catch (error) {
           console.log(
-            "AI ERROR:",
+            "========== AI ERROR =========="
+          );
+
+          console.log(
+            "STATUS:",
+            error.response?.status
+          );
+
+          console.log(
+            "DATA:",
+            error.response?.data
+          );
+
+          console.log(
+            "MESSAGE:",
             error.message
+          );
+
+          console.log(
+            "=============================="
           );
 
           await User.findByIdAndUpdate(
